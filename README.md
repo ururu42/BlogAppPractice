@@ -1,12 +1,33 @@
-# React + Vite
+Области хранения данных:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- база данных на json server
+- эмулятор BFF
+- redux store
 
-Currently, two official plugins are available:
+Сущности приложения:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- пользователь: БД (список пользователей), BFF (сессия текущего пользователя),
+  redux store (отображение в браузере)
+- роль пользователя: БД (список ролей), BFF (сессия пользователя с ролью),
+  redux store (использование на клиенте)
+- статья: БД (список статей), redux store (отображение в браузере)
+- комментарий: БД (список комментариев), redux store (отображение в браузере)
 
-## Expanding the ESLint configuration
+Таблицы БД:
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- пользователи - users: id / login / password / registed_at / role_id
+- роли - roles: id / name
+- статьи - posts: id / title / image_url / content / published_at
+- комментарии - comments: id / autor_id / post_id / content
+
+Схема состояния на BFF:
+
+-сессия текущего пользователя: login / password / role
+
+Схема для redux store (на клиенте):
+
+- user: id / login / roleId
+- posts: массив post: id / title / imageUrl / publishedAt / commentsCount
+- post: id / title / imageUrl / content / publishedAt / comments: массив comment: id / 
+autor / content / publishedAt
+- users: массив user: id / login / registeredAt / role
