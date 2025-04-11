@@ -3,51 +3,16 @@
     {
       "id": "001",
       "login": "anton",
-      "password": "qwerty123",
+      "password": "qwerty",
       "registed_at": "2050-09-22",
-      "role_id": 0
+      "role_id": 1
     },
     {
       "login": "kate",
-      "password": "qwerty123",
+      "password": "qwerty",
       "registed_at": "2063-11-09 16:16",
-      "role_id": 2,
+      "role_id": 0,
       "id": "vcXQRXJ"
-    },
-    {
-      "login": "kate2",
-      "password": "qwerty123",
-      "registed_at": "2043-06-11 18:00",
-      "role_id": 2,
-      "id": "T3EYT-K"
-    },
-    {
-      "login": "ururu42",
-      "password": "qwerty123",
-      "registed_at": "2049-02-16 13:07",
-      "role_id": 2,
-      "id": "l0MC2sF"
-    },
-    {
-      "login": "iva",
-      "password": "qwerty123",
-      "registed_at": "2058-06-17 02:16",
-      "role_id": 2,
-      "id": "2vEHz96"
-    },
-    {
-      "login": "anton2",
-      "password": "qwerty123",
-      "registed_at": "2057-04-11 04:29",
-      "role_id": 2,
-      "id": "Jrw6Ays"
-    },
-    {
-      "login": "iii",
-      "password": "qwerty123",
-      "registed_at": "2034-03-20 12:27",
-      "role_id": 2,
-      "id": "umkWnLC"
     }
   ],
   "roles": [
