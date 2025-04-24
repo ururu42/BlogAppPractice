@@ -98,5 +98,68 @@
       "published_at": "2045-03-26"
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "author_id": "vcXQRXJ",
+      "post_id": "001",
+      "published_at": "2042-04-15 15:42",
+      "content": "Мой первый комментарий",
+      "id": 1
+    },
+    {
+      "author_id": "vcXQRXJ",
+      "post_id": "001",
+      "published_at": "2064-11-10 07:16",
+      "content": "Мой первый комментарий 2",
+      "id": 2
+    },
+    {
+      "author_id": "vcXQRXJ",
+      "post_id": "001",
+      "published_at": "2039-05-24 10:05",
+      "content": "Мой первый комментарий 23",
+      "id": 3
+    },
+    {
+      "author_id": "vcXQRXJ",
+      "post_id": "001",
+      "published_at": "2050-12-23 08:11",
+      "content": "Мой первый комментарий 234",
+      "id": 4
+    },
+    {
+      "author_id": "vcXQRXJ",
+      "post_id": "001",
+      "published_at": "2040-06-14 02:22",
+      "content": "новый комментарий",
+      "id": 5
+    },
+    {
+      "author_id": "vcXQRXJ",
+      "post_id": "001",
+      "published_at": "2057-09-05 00:29",
+      "content": "новый комментарий 2",
+      "id": 6
+    },
+    {
+      "author_id": "vcXQRXJ",
+      "post_id": "001",
+      "published_at": "2062-05-15 05:47",
+      "content": "новый комментарий 23",
+      "id": 7
+    }
+  ],
+  "sessions": [
+    {
+      "hash": "0.68683147144960066121655017923330888152122497558594",
+      "user": {
+        "id": "vcXQRXJ",
+        "login": "kate",
+        "password": "qwerty",
+        "registedAt": "2063-11-09 16:16",
+        "roleId": 0
+      },
+      "id": 1
+    }
+  ]
 }
