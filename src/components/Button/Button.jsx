@@ -9,8 +9,8 @@ const ButtonContainer = ({ children, clasName, width, ...props }) => {
 };
 
 export const Button = styled(ButtonContainer)`
-	width: ${({ width = '100%' }) => width}
-  display: flex;
+	width: ${({ width = '100%' }) => width};
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 18px;
@@ -18,7 +18,7 @@ export const Button = styled(ButtonContainer)`
 	border: 1px solid black;
 	background-color: #eee;
 
-  &:hover {
+	&:hover {
 		cursor: pointer;
 	}
 `;

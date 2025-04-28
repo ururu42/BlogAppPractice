@@ -6,3 +6,4 @@ export * from './Button/Button.jsx';
 export * from './H2/H2.jsx';
 export * from './AuthError/auth-form-error.jsx';
 export * from './content/content.jsx';
+export * from './Modal/Modal.jsx';
