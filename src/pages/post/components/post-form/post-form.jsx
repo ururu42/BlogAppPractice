@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Icon, Input } from '../../../../components';
@@ -12,40 +12,76 @@ const PostFormContainer = ({
 	className,
 	post: { id, title, imageUrl, content, publishedAt },
 }) => {
-	const imageRef = useRef(null);
-	const titleRef = useRef(null);
+	const [imageUrlValue, setImageUrlValue] = useState(imageUrl);
+	const [titleValue, setTitleValue] = useState(title);
 	const contentRef = useRef(null);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const requestServer = useServerRequest();
 
+	useLayoutEffect(() => {
+		setImageUrlValue(imageUrl);
+		setTitleValue(title);
+	}, [imageUrl, title]);
+
 	const onSave = () => {
-		const newImageUrl = imageRef.current.value;
-		const newTitle = titleRef.current.value;
-		const newContent = sanitazeContent(contentRef.current.innerHTML);
+		const newContent = sanitazeContent(contentRef.current.innerText);
 
 		dispatch(
 			savePostAsync(requestServer, {
 				id,
-				imageUrl: newImageUrl,
-				title: newTitle,
+				imageUrl: imageUrlValue,
+				title: titleValue,
 				content: newContent,
 			}),
-		).then(() => navigate(`/post/${id}`));
+		).then(({ id }) => navigate(`/post/${id}`));
+	};
+
+	const handlePaste = (e) => {
+		e.preventDefault();
+		const text = e.clipboardData.getData('text/plain');
+
+		const selection = window.getSelection();
+		if (!selection.rangeCount) return;
+
+		selection.deleteFromDocument();
+		const range = selection.getRangeAt(0);
+		range.insertNode(document.createTextNode(text));
+
+		range.collapse(false);
+		selection.removeAllRanges();
+		selection.addRange(range);
+	};
+
+	const onImageChange = ({ target }) => {
+		setImageUrlValue(target.value);
+	};
+
+	const onTitleChange = ({ target }) => {
+		setTitleValue(target.value);
 	};
 
 	return (
 		<div className={className}>
-			<Input ref={imageRef} defaultValue={imageUrl} placeholder="Изображение..." />
-			<Input ref={titleRef} defaultValue={title} placeholder="Заголовок..." />
+			<Input
+				value={imageUrlValue}
+				placeholder="Изображение..."
+				onChange={onImageChange}
+			/>
+			<Input
+				value={titleValue}
+				placeholder="Заголовок..."
+				onChange={onTitleChange}
+			/>
 			<SpecialPanel
+				id={id}
 				publishedAt={publishedAt}
 				margin="20px 0 20px"
 				editButton={
 					<Icon
 						id="fa-floppy-o"
-						margin="0 10px 0 0"
+						margin="0 0 0 10px"
 						size="22px"
 						onClick={onSave}
 					/>
@@ -55,6 +91,7 @@ const PostFormContainer = ({
 				ref={contentRef}
 				contentEditable={true}
 				suppressContentEditableWarning={true}
+				onPaste={handlePaste}
 				className="post-text"
 			>
 				{content}
@@ -70,6 +107,8 @@ export const PostForm = styled(PostFormContainer)`
 	}
 
 	& .post-text {
+		min-height: 80px;
+		border: 1px solid #000;
 		font-size: 18px;
 		white-space: pre-line;
 	}
