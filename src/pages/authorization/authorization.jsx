@@ -91,6 +91,7 @@ const AuthorizationContainer = ({ className }) => {
 				<Input
 					type="password"
 					placeholder="Пароль...."
+					
 					{...register('password', { onChange: () => setServerError(null) })}
 				></Input>
 				<Button type="submit" disabled={!!formError}>

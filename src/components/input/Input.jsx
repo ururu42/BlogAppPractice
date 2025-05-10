@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 
 export const InputContainer = ({ className, width, ...props }) => {
@@ -12,3 +13,7 @@ export const Input = styled(InputContainer)`
 	padding: 10px;
 	font-size: 18px;
 `;
+
+Input.propTypes = {
+	width: PropTypes.string,
+};

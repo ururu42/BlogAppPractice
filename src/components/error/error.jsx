@@ -1,3 +1,4 @@
+import { PROP_TYPE } from '../../constants';
 import { H2 } from '../H2/H2';
 import styled from 'styled-components';
 
@@ -19,4 +20,8 @@ export const Error = ({ error }) => {
 			)}
 		</>
 	);
+};
+
+Error.propTypes = {
+	error: PROP_TYPE.ERROR,
 };

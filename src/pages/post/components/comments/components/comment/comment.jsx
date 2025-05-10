@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { useServerRequest } from '../../../../../../hooks';
 import { openModal, CLOSE_MODAL, removeCommentAsync } from '../../../../../../action';
 import { Icon } from '../../../../../../components';
@@ -34,7 +35,7 @@ const CommentContainer = ({ className, postId, id, author, publishedAt, content 
 						<Icon
 							inactive={true}
 							id="fa-user-circle-o"
-							margin="0 0 0 10px"
+							margin="0 5px 0 10px"
 							size="18px"
 							onClick={() => {}}
 						/>
@@ -44,7 +45,7 @@ const CommentContainer = ({ className, postId, id, author, publishedAt, content 
 						<Icon
 							inactive={true}
 							id="fa-calendar-o"
-							margin="0 0 0 0"
+							margin="0 5px 0 0"
 							size="18px"
 							onClick={() => {}}
 						/>
@@ -88,3 +89,11 @@ export const Comment = styled(CommentContainer)`
 		display: flex;
 	}
 `;
+
+Comment.propTypes = {
+	postId: PropTypes.string.isRequired,
+	id: PropTypes.number.isRequired,
+	author: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
+};

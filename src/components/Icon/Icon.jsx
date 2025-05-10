@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const IconContainer = ({ className, inactive, id, ...props }) => (
@@ -15,3 +16,8 @@ export const Icon = styled(IconContainer)`
 		cursor: ${({ inactive }) => (inactive ? 'default' : 'pointer')};
 	}
 `;
+
+Icon.propTypes = {
+	inactive: PropTypes.bool,
+	id: PropTypes.string.isRequired,
+};
