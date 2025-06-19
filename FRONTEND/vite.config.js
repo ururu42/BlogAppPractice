@@ -7,13 +7,7 @@ export default defineConfig({
 	plugins: [react(), svgr()],
 	server: {
 		proxy: {
-			'/posts': 'http://localhost:3001',
-			'/users': 'http://localhost:3001',
-			'/login': 'http://localhost:3001',
-			'/logout': 'http://localhost:3001',
-			'/register': 'http://localhost:3001',
-
-			// и другие, если нужно
+			'/api': 'http://localhost:3001',
 		},
 	},
 });
