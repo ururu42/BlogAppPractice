@@ -19,7 +19,7 @@ const UsersContainer = ({ className }) => {
 		if ((!checkAccess([ROLE.ADMIN]), userRole)) {
 			return;
 		}
-		Promise.all([request('/users'), request('/users/roles')]).then(
+		Promise.all([request('/api/users'), request('/api/users/roles')]).then(
 			([usersResponse, rolesResponse]) => {
 				if (usersResponse.error || rolesResponse.error) {
 					setErrorMessage(usersResponse.error || rolesResponse.error);
@@ -37,7 +37,7 @@ const UsersContainer = ({ className }) => {
 			return;
 		}
 
-		request(`/users/${userId}`, 'DELETE').then(() => {
+		request(`/api/users/${userId}`, 'DELETE').then(() => {
 			setShouldUpdateUsersList(!shouldUpdateUsersList);
 		});
 	};
